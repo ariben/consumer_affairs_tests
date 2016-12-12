@@ -1,0 +1,3 @@
+*.pyc
+/base/*.pyc
+/pages/*.pyc
