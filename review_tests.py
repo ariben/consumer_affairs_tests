@@ -11,6 +11,7 @@ from pages import contact_information_page as contactinfopage
 from pages import interests_page as interestspage
 from pages import confirmation_page as confirmationpage
 from pages import write_review_page as writereviewpage
+from pages import thank_you_page as thankyoupage
 from utils import HTMLTestRunner, utilities
 import time
 
@@ -35,7 +36,7 @@ class ReviewTests(BaseTest):
         expected_text = "Create an account"
         assert contact_information_page.has_text(expected_text), "Expected text <%s> was not displayed"
         contact_information_page.input_profile_details(firstname=utilities.string_generator(), lastname=utilities.string_generator(),
-                                                        phone_number='55111578',address1=utilities.string_generator(),
+                                                        phone_number='12345678901',address1=utilities.string_generator(),
                                                         address2=utilities.string_generator(), city=utilities.string_generator(),
                                                         zipcode='lima 12', country= "Peru", subscribe_newsletter = False)
         contact_information_page.click_create_account()
@@ -48,7 +49,8 @@ class ReviewTests(BaseTest):
                                         subject=utilities.string_generator(), experience=utilities.string_generator(), number_stars = 1)
         write_review_page.certify_review()
         write_review_page.submit_review()
-        time.sleep(10)
+        thank_you_page = thankyoupage.ThankYouPage(self.driver)
+        assert thank_you_page.has_text('Thank You')
 
 
 
