@@ -4,10 +4,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 import time
-from basepage import BasePage
+from pages.basepage import BasePage
 
 class ReviewPage(BasePage):
-    CREATE_ACCOUNT_BUTTON = {"by": By.LINK_TEXT, "value": "Create account"}
+    WRITE_REVIEW_BUTTON = {"by" : By.LINK_TEXT , "value" : "Write a review"}
 
-    def create_account(self):
-        self.driver.find_element(self.CREATE_ACCOUNT_BUTTON["by"],self.CREATE_ACCOUNT_BUTTON["value"]).click()
+    def write_review(self):
+        self.driver.find_element(self.WRITE_REVIEW_BUTTON["by"],self.WRITE_REVIEW_BUTTON["value"]).click()
